@@ -76,6 +76,10 @@ class UserDataRepoTest
 				
 		//test to see if find user by ID works
 		assertEquals(testUserRepo.findUserByID(909), elvis);
+		
+		//test find user by name
+		assertEquals(testUserRepo.findUserByName("beans"), elvis);
+		assertEquals(testUserRepo.findUserByName("nonExistent"), null);
 	}
 
 }

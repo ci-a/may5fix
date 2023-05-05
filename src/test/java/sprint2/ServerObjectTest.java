@@ -85,9 +85,7 @@ class ServerObjectTest
 		assertEquals(client.getGroupData(client.User.UserID, 99), "group retrieval success");
 				
 		//make role
-		perm = new Pair();
-		perm.PermName = "can_kick";
-		perm.set = true;
+		perm = new Pair("can_kick", true);
 		permList = new ArrayList<Pair>();
 		permList.add(perm);
 		dummyRole = new Role("can_kick", permList);

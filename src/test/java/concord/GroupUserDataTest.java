@@ -17,28 +17,19 @@ class GroupUserDataTest
 	void setUp() throws Exception
 	{
 		//creation of an admin role with all capabilities
-		Pair kick = new Pair();
-		kick.PermName = "kick";
-		kick.set = true;
+		Pair kick = new Pair("kick", true);
 				
-		Pair ban = new Pair();
-		ban.PermName = "ban";
-		ban.set = true;
+		Pair ban = new Pair("ban", true);
 				
-		Pair texts = new Pair();
-		texts.PermName = "controlUserMessaging";
-		texts.set = true;
+		Pair texts = new Pair("controlUserMessaging", true);
 			
-		Pair groupName = new Pair();
-		groupName.PermName = "changeGroupName";
-		groupName.set = true;
+		Pair groupName = new Pair("changeGroupName", true);
 				
-		Pair changePerms = new Pair();
-		changePerms.PermName = "changeUsersPerms";
-		changePerms.set = true;
+		Pair changePerms = new Pair("changeUsersPerms", true);
 				
 		permList = new ArrayList<Pair>();
 		permList.add(kick);
+		permList.add(ban);
 		permList.add(texts);
 		permList.add(groupName);
 		permList.add(changePerms);
@@ -60,6 +51,8 @@ class GroupUserDataTest
 	{
 		//testing to see if perms can be found by checkPerm
 		assertEquals(guTest.checkPerm("changeUsersPerms"), true);
+		assertEquals(guTest.checkPerm("ban"), true);
+		assertEquals(guTest.checkPerm("kick"), true);
 				
 		//hackUser doesn't exist so it returns false if perm doesn't exist.
 		assertEquals(guTest.checkPerm("hackUser"), false);
